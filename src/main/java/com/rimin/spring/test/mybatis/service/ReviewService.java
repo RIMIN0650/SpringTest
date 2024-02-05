@@ -12,7 +12,6 @@ public class ReviewService {
 	@Autowired
 	private ReviewRepository reviewRepository;
 	
-	
 	// 전달된 id 를 가진 리뷰 정보 돌려주는 기능
 	public Review getReview(int id){
 		Review review = reviewRepository.selectReview(id);
