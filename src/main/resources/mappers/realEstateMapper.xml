@@ -5,7 +5,7 @@
  
  
  <mapper namespace="com.rimin.spring.test.mybatis.repository.RealEstateRepository">
- 	<select id="selectEstate"
+ 	<select id="selectEstate" parameterType="int"
  	resultType="com.rimin.spring.test.mybatis.domain.RealEstate">
  		SELECT
  			`id`

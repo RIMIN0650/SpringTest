@@ -15,9 +15,11 @@ public class RealEstateController {
 	@Autowired
 	public RealEstateService realEstateService;
 	
-	@RequestMapping("/mybatis/real-estate/1")
+	@RequestMapping("/mybatis/real-estate/select/1")
 	@ResponseBody
 	public RealEstate estate(@RequestParam("id") int id) {
+		// 파라미터로 전달된 id와 일치하는 매물 정보를 json 으로 response에 담는다
+		
 		RealEstate estate = realEstateService.getEstate(id);
 		
 		return estate;
