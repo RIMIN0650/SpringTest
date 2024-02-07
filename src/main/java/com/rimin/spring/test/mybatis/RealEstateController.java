@@ -51,7 +51,40 @@ public class RealEstateController {
 	}
 	
 	
-
+	@RequestMapping("/4")
+	@ResponseBody
+	public String createRealEstate() {
+		// 3, 푸르지용 리버 303동 1104호, 89, 매매, 100000
+		RealEstate realEstate = new RealEstate();
+		realEstate.setRealtorId(3);
+		realEstate.setAddress("푸르지용 리버 303동 1104호");
+		realEstate.setArea(89);
+		realEstate.setType("매매");
+		realEstate.setPrice(100000);
+		
+		int count = realEstateService.addRealEstateByObject(realEstate);
+		return "입력 성공 : " + count;
+	}
+	
+	
+	
+	
+	//주소창에서 realtorId 파라미터로 전달받기 
+	// localhost:8080/mybatis/real-estate/select/5?realtorid=3
+	@RequestMapping("/5")
+	@ResponseBody
+	// field 로 insert 하기
+	public String insertRealEstate(@RequestParam("realtorId")int realtorId) {
+		int count = realEstateService.addRealEstate(realtorId, "샹떼빌리버 오피스텔 814호", 45, "월세", 100000, 120);
+		return "입력 성공 : " + count;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

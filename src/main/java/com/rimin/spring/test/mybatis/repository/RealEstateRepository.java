@@ -20,4 +20,27 @@ public interface RealEstateRepository {
 			, @Param("price") int price);
 	//controller와 repository 는 서로 모르는 사이 아무런 상관이 없음
 	
+	
+	
+	
+	//객체로 insert
+	public int insertRealEstateByObject (RealEstate realEstate);
+	
+	
+	
+	
+	
+	
+	
+	//realtorId parameter로 전달 field 로 insert
+	public int insertRealEstate(
+				@Param("realtorId") int realtorId
+				, @Param("address") String address
+				, @Param("area") int area
+				, @Param("type") String type
+				, @Param("price") int price
+				, @Param("rentPrice") int rentPrice
+			);
+	
+	
 }

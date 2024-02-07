@@ -34,4 +34,19 @@ public class RealEstateService {
 	
 	
 	
+	public int addRealEstateByObject(RealEstate realEstate) {
+		int count = realEstateRepository.insertRealEstateByObject(realEstate);
+		return count;
+	}
+	
+	
+	
+	// realtorId parameter로 전달 field로 insert
+	public int addRealEstate(int realtorId, String address, int area, String type, int price, int rentPrice) {
+		int count = realEstateRepository.insertRealEstate(realtorId, address, area, type, price, rentPrice);
+		return count;
+	}
+	
+	
+	
 }
