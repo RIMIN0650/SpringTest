@@ -25,7 +25,7 @@ public interface RealEstateRepository {
 	
 	//객체로 insert
 	public int insertRealEstateByObject (RealEstate realEstate);
-	
+	// insert 수행하면 실행된 행의 개수 리턴되므로 return type 은 int 로 설정
 	
 	
 	
@@ -39,8 +39,24 @@ public interface RealEstateRepository {
 				, @Param("area") int area
 				, @Param("type") String type
 				, @Param("price") int price
-				, @Param("rentPrice") int rentPrice
+				, @Param("rentPrice") int rentPrice);
+	
+	
+	
+	
+	// update
+	// 실행된 행의 개수 return > int 
+	public int updateRealEstate(
+				@Param("id") int id
+				, @Param("type") String type
+				, @Param("price") int price
 			);
+	
+	
+	public int deleteRealEstate(@Param("id") int id);
+	
+	
+	
 	
 	
 }

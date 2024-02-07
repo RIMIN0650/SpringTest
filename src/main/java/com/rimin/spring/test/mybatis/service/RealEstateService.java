@@ -35,6 +35,7 @@ public class RealEstateService {
 	
 	
 	public int addRealEstateByObject(RealEstate realEstate) {
+		// insert의 경우 정수 형태로 리턴해줌
 		int count = realEstateRepository.insertRealEstateByObject(realEstate);
 		return count;
 	}
@@ -42,11 +43,35 @@ public class RealEstateService {
 	
 	
 	// realtorId parameter로 전달 field로 insert
-	public int addRealEstate(int realtorId, String address, int area, String type, int price, int rentPrice) {
+	public int addRealEstate(
+			int realtorId
+			, String address
+			, int area
+			, String type
+			, int price
+			, int rentPrice) {
 		int count = realEstateRepository.insertRealEstate(realtorId, address, area, type, price, rentPrice);
 		return count;
 	}
 	
+	
+	
+	
+	
+	
+	// 특정 id 의 매물 정보에 전달받은 type 과 price 값을 수정하는 기능
+	// insert update delete 다 return type int 로 똑같음 실행된 행의 개수 리턴
+	public int updateRealEstate(int id, String type, int price) {
+		int count = realEstateRepository.updateRealEstate(id, type, price);
+		return count;
+	}
+	
+	
+	public int deleteRealEstate(int id){
+		
+		int count = realEstateRepository.deleteRealEstate(id);
+		return count;
+	}
 	
 	
 }
