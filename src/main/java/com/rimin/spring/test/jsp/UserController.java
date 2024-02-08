@@ -10,16 +10,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.rimin.spring.test.jsp.service.UserService;
 
 
-
-
 @Controller
 @RequestMapping("/jsp/user")
 public class UserController {
 
 	@Autowired
 	public UserService userService;
-	
-	
+
 	// 이름, 생년월일, 이메일 전달 받고, 저장하는 페이지
 	// 4 개의 정보를 request parameter 로 전달받기
 	// get : parameter 주소의 형태로
@@ -33,11 +30,9 @@ public class UserController {
 			, @RequestParam("birthday")String birthday
 			, @RequestParam("email")String email){
 		
-		
 		int count = userService.addUser(name, birthday, email);
 		
 		return "수행 결과 : " + count;
-
 	}
 	
 	
