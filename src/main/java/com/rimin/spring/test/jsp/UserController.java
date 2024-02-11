@@ -2,11 +2,13 @@ package com.rimin.spring.test.jsp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.rimin.spring.test.jsp.domain.User;
 import com.rimin.spring.test.jsp.service.UserService;
 
 
@@ -45,6 +47,27 @@ public class UserController {
 		// application.properties에 jsp 파일 경로 prefix suffix 설정해뒀기 때문에
 		// jsp 경로는 client 가 사용하는 것이 아니고 RequestmMapping / getMapping 통해 접근해야함
 		return "/jsp/userInput";
+	}
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/info")
+	public String userInfo(Model model) {
+		//가장 최근에 추가된 사용자 정보
+		User user = userService.getLastUser();
+		
+				// model
+		model.addAttribute("result", user);
+		model.addAttribute("title", "사용자 정보");
+		
+		
+		
+		
+		return "/jsp/userinfo";
 	}
 	
 	

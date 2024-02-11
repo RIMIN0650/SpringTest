@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.rimin.spring.test.database.domain.Store;
 import com.rimin.spring.test.database.repository.StoreRepository;
 
+
 @Service
 public class StoreService {
 	@Autowired
@@ -26,3 +27,6 @@ public class StoreService {
 		
 	}
 }
+
+
+

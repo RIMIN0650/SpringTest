@@ -15,3 +15,4 @@ public interface StoreRepository {
 	public List<Store> selectStoreList();
 	
 }
+

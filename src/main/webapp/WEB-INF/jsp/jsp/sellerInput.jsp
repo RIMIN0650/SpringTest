@@ -11,7 +11,7 @@
 	<h2>판매자 추가</h2>
 	
 	
-	<form method="get" action="/jsp/seller/add"> 
+	<form method="post" action="/jsp/seller/add"> 
 		<label>닉네임 : </label><input type="text" name="nickname"><br>
 		<label>프로필 사진 URL : </label><input type="text" name="profileImage"><br>
 		<label>온도 : </label><input type="text" name="temperature"><br>
