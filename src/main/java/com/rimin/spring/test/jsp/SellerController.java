@@ -61,13 +61,13 @@ public class SellerController {
 	// id parameter가 없는 경우 > 가장 최근에 추가된 seller의 정보를 출력
 	// 있는 경우 > id 를 parameter로 받아서 해당하는 seller 출력
 	
-//	  @GetMapping("/search") 
-//	  public String searchSeller(@RequestParam("id") int id) { 
-//	  sellerService.findSeller(id); 
-//	  
-//	  return " /jsp/sellerInfo ";
-//	  
-//	  }
+	  @GetMapping("/search") 
+	  public String searchSeller(@RequestParam(value="id", required=false) int id) { 
+	  sellerService.findSeller(id); 
+	  
+	  return " /jsp/sellerInfo ";
+	  
+	  }
 	 
 	
 }
