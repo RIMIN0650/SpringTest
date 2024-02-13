@@ -35,9 +35,11 @@ public class SellerService {
 	
 	
 	
-	public int findSeller(int id) {
-		int count = sellerRepository.searchSellerId(id);
-		return count;
+	public Seller findSeller(int id) {
+		
+		Seller seller = sellerRepository.searchSellerId(id);
+		
+		return seller;
 	}
 	
 }

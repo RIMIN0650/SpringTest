@@ -23,7 +23,6 @@
  	</insert>
  
  	
- 	
  	<select id="selectLastSeller" 
  			resultType="com.rimin.spring.test.jsp.domain.Seller">
  		SELECT
@@ -38,14 +37,11 @@
  		ORDER BY 
  			`id` DESC
  		LIMIT 
- 			1	
- 	
- 	
- 	
+ 			1	 	
  	</select>
  	
  	
- 	<select id="searchSellerId" 
+ 	<select id="searchSellerId" parameterType="int"
  			resultType="com.rimin.spring.test.jsp.domain.Seller">
  		SELECT
  			`id`
@@ -57,16 +53,11 @@
  		FROM
  			`seller`
  		WHERE
- 			#{id} = `id`
- 		
- 		
- 	
+ 			`id` = #{id}
  	
  	</select>
  	
- 	
- 	
- 	
+
  	
  	
  
