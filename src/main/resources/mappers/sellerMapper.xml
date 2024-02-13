@@ -46,7 +46,7 @@
  	
  	
  	<select id="searchSellerId" 
- 			resultType="com.rimin.Spring.test.jsp.domain.seller">
+ 			resultType="com.rimin.spring.test.jsp.domain.Seller">
  		SELECT
  			`id`
  			, `nickname`
