@@ -26,15 +26,25 @@ public class UserController {
 	//@RequestMapping(path="/jsp/user/create", method=RequestMethod.GET) // GET POST
 	//http://localhost:8080/jsp/user/create?name=권민석&birthday=20000323&email=chris0540@naver.com
 	@GetMapping("/create") // post로 하고 싶으면 postmapping 사용
-	@ResponseBody
+//	@ResponseBody
 	public String createUser(
 			@RequestParam("name")String name
 			, @RequestParam("birthday")String birthday
-			, @RequestParam("email")String email){
+			, @RequestParam("email")String email
+			, Model model){
 		
-		int count = userService.addUser(name, birthday, email);
+//		int count = userService.addUser(name, birthday, email);
 		
-		return "수행 결과 : " + count;
+		User user = new User();
+		
+		user.setName(name);
+		user.setYyyymmdd(birthday);
+		user.setEmail(email);
+		
+		userService.addUserByObject(user);
+		model.addAttribute("result", user);
+		
+		return "/jsp/userinfo";
 	}
 	
 	

@@ -8,7 +8,13 @@
 </head>
 <body>
 	
+	<h2>사용자 정보</h2>
+	
 	<table border="1">
+		<tr>
+			<td>id</td>
+			<td>${result.id }</td>
+		</tr>	
 		<tr>
 			<td>이름</td>
 			<td>${result.name }</td>

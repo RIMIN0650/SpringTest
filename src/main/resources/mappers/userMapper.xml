@@ -22,7 +22,23 @@
  	
  	</insert>
  	
- 	
+ 	<insert id="insertUserByObject" 
+ 	parameterType="com.rimin.spring.test.jsp.domain.User"
+ 	useGeneratedKeys="true" keyProperty="id">
+ 		INSERT INTO
+ 			`new_user`
+ 		(
+ 			`name`
+ 			, `yyyymmdd`
+ 			, `email`
+ 		)
+ 		VALUE
+ 		( 	
+ 			#{name}
+ 			, #{yyyymmdd}
+ 			, #{email}
+ 		)
+ 	</insert>
  	
  	<select id="selectLastUser"
  	resultType="com.rimin.spring.test.jsp.domain.User">

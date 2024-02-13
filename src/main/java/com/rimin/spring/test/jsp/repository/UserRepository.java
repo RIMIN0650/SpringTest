@@ -13,6 +13,10 @@ public interface UserRepository {
 					, @Param("birthday") String birthday
 					, @Param("email") String email);
 	
+	// User.java 엔티티 클래스를 객체로 전달하는
+	public int insertUserByObject(User user);
+	
+	
 	// 가장 최근에 삽입된 행 조회
 	public User selectLastUser();
 	
