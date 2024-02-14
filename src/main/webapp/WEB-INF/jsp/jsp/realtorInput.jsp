@@ -9,14 +9,14 @@
 </head>
 <body>
 
-	<h2>공인중개사 추가</h2>	
+	<h2>공인중개사 추가</h2><br>	
 		
 	<form method="get" action="/jsp/realtor/info">
-		<label>상호명 : </label><input type="text" name="office"> <br>
-		<label>전화번호 : </label><input type="text" name="phoneNumber"> <br>
-		<label>주소 : </label><input type="text" name="address"> <br>
-		<label>등급 : </label><input type="text" name="grade"> <br>
-		<button type="submit">추가</button>
+		<label>상호명 : </label><input type="text" name="office" class="form-control col-6"> <br>
+		<label>전화번호 : </label><input type="text" name="phoneNumber" class="form-control col-6"> <br>
+		<label>주소 : </label><input type="text" name="address" class="form-control col-6"> <br>
+		<label>등급 : </label><input type="text" name="grade" class="form-control col-6"> <br>
+		<button type="submit" class="btn btn-primary">추가</button>
 	</form>
 	
 
