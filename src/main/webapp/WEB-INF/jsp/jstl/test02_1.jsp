@@ -15,6 +15,7 @@
 </head>
 <body>
 	
+	<div class="container">
 	<h3>HOT 5</h3>
 	
 	<table class="table text-center">
@@ -38,7 +39,7 @@
 	
 	</table>
 	
-	
+	</div>
 	
 	
 	

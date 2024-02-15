@@ -17,7 +17,6 @@ public class JSTLController {
 	
 	@GetMapping("/ex01")
 	public String ex01() {
-		
 		return "/jstl/ex01";
 	}
 	
@@ -32,8 +31,29 @@ public class JSTLController {
 		
 		model.addAttribute("fruitList", fruitList);
 		
-		return "jstl/ex02";
+		List<Map<String, Object>> userList = new ArrayList<>();
+		
+		Map<String, Object> userMap1 = new HashMap<>();
+		userMap1.put("name", "권민석");
+		userMap1.put("age",25);
+		userMap1.put("hobby", "독서");
+		
+		Map<String, Object> userMap2 = new HashMap<>();
+		userMap2.put("name", "까토");
+		userMap2.put("age", 2);
+		userMap2.put("hobby", "잠자기");
+		
+		userList.add(userMap1);
+		userList.add(userMap2);
+		
+		model.addAttribute("userList", userList);
+		
+		return "/jstl/ex02";
+		
+	
 	}
+	
+
 	
 	
 	@GetMapping("/test01")
@@ -51,7 +71,7 @@ public class JSTLController {
 		musicRanking.add("보고싶다");
 		model.addAttribute("musicRanking",musicRanking);
 		
-		return "/jstl/test02_1s";
+		return "/jstl/test02_1";
 	}
 	
 	
