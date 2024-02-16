@@ -30,6 +30,7 @@
 			<tr class="text-center">
 				<td>${member.name }</td>
 				<td>${member.phoneNumber }</td>
+				
 				<c:choose>
 					<c:when test="${member.grade eq 'VIP' }">
 						<td class="text-danger">${member.grade }</td>
