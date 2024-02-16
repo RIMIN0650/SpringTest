@@ -249,7 +249,7 @@ public class JSTLController {
 		member.setIntroduce("내 수염 좀 멋있는 듯");
 		members.add(member);
 		
-		model.addAttribute("members", members);
+		model.addAttribute("memberList", members);
 		
 		return "/jstl/test04";
 	}

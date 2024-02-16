@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
@@ -31,29 +31,53 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="user" items="${members }" varStatus="status">
+				<c:forEach var="user" items="${memberList }" varStatus="status">
 				<tr>
 					<td>${status.count }</td>
 					<td>${user.name }</td>
+				
+				
+					<%--
 					<c:if test="${fn:startsWith(user.phoneNumber,'010') }">
 						<td>${user.phoneNumber }</td>
 					</c:if>
 					<c:if test="${fn:startsWith(user.phoneNumber,'010') eq false }">
 						<td>유효하지 않은 전화번호</td>
 					</c:if>
+				 	--%>
+				
+				
+					<c:choose>
+						<c:when test="${fn:startsWith(user.phoneNumber,'010') }">
+							<td>${user.phoneNumber }</td>							
+						</c:when>
+						<c:otherwise>
+							<td>유효하지 않은 전화번호</td>
+						</c:otherwise>
+					</c:choose>
+				
+				
 					
-					<td>${fn:replace (user.nationality ,'시대', '-')  }</td>
+					<td>${fn:replace (user.nationality ,'시대', ' - ')  }</td>
 					
 					
-					<td><h5>${fn:split( user.email,'@')[0] }</h5>@${fn:split( user.email,'@')[1] }</td>
+					<td><b>${fn:split( user.email,'@')[0] }</b>@${fn:split( user.email,'@')[1] }</td>
 					
+					
+					<%--
 					<c:if test="${fn:length(user.introduce) <= 15 }">
 						<td>${user.introduce }</td>
 					</c:if>
 					<c:if test="${fn:length(user.introduce) > 15 }">
 						<td>${fn:substring(user.introduce,0,15) }...</td>
 					</c:if>
+					 --%>
 					
+					 <td>${fn:substring(user.introduce,0,15) }
+					 <c:if test="${fn:length(user.introduce) > 15 }">
+					 	...
+					 </c:if>
+					 </td>
 					
 				</tr>
 				</c:forEach> 
