@@ -33,8 +33,6 @@ public class SellerController {
 		return "수행 결과 : " + count;
 	}
 	
-	
-	
 	@GetMapping("/input")
 	public String inputSeller() {
 		

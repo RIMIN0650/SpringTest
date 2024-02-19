@@ -3,14 +3,14 @@ package com.rimin.spring.test.jstl.domain;
 import java.util.Date;
 
 public class Weather {
-	
+	//java.util.date import
 	private int id;
 	private Date date;
 	private String weather;
-	private Double temperatures;
-	private Double precipitation;
+	private double temperatures;
+	private double precipitation;
 	private String microDust;
-	private Double windSpeed;
+	private double windSpeed;
 	private Date createdAt;
 	private Date updatedAt;
 	public int getId() {

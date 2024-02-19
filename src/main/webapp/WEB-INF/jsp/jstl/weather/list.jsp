@@ -47,12 +47,30 @@
 					<tbody>
 						<c:forEach var="list" items="${weather }">
 							<tr>
-								<td>${list.date }</td>
-								<td>${list.weather }</td>
-								<td>${list.temperatures }</td>
-								<td>${list.precipitation }</td>
+
+								<td><fmt:formatDate value="${list.date }" pattern="yyyy년 M월 d일"/></td>
+								<c:choose>
+									<c:when test="${list.weather eq '맑음' }">
+										<td><img src="http://marondal.com/material/images/dulumary/web/jstl/sunny.jpg"></td>
+									</c:when>
+									<c:when test="${list.weather eq '구름조금' }">
+										<td><img src="http://marondal.com/material/images/dulumary/web/jstl/partlyCloudy.jpg"></td>
+									</c:when>
+									<c:when test="${list.weather eq '흐림' }">
+										<td><img src="http://marondal.com/material/images/dulumary/web/jstl/cloudy.jpg"></td>
+									</c:when>
+									<c:when test="${list.weather eq '비' }">
+										<td><img src="http://marondal.com/material/images/dulumary/web/jstl/rainy.jpg"></td>
+									</c:when>
+									<c:otherwise>
+										${list.weather }
+									</c:otherwise>
+								</c:choose>
+
+								<td>${list.temperatures }℃</td>
+								<td>${list.precipitation }mm</td>
 								<td>${list.microDust }</td>
-								<td>${list.windSpeed }</td>
+								<td>${list.windSpeed }km/h</td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -62,12 +80,12 @@
 		</section>
 		
 		<footer id="footer" class="d-flex">
-			<div id="copyLogo" class="d-flex w-25 ml-3 mt-3">
+			<div id="copyLogo" class="d-flex justify-contetn-center align-items-center w-25 ml-3 mt-3">
 				<img width="80" height="80" src="https://cdn.pixabay.com/photo/2017/02/15/00/48/logo-2067396_640.png">
-				<div class="">기상청</div>
+				<h3 class="ml-5">기상청</h3>
 			</div>
-			<div id="copyright" class="w-75">
-				<div class="text-secondary ml-3 mt-3">
+			<div id="copyright" class="w-75 d-flex align-items-center">
+				<div class="text-secondary ml-3 ">
 				서울 (07062) 서울특별시 동작구 여의대방로16길 61<br><br>
 				전화 (02)2181-0900, (042)481-7500 (평일 9:00~18:00, 평일 18:00 이후 및 야간휴일은 131기상콜센터 연결)<br>
 				Copyright@2022 KMA. All Rights RESERVED. 전자우편(웹사이트 관련 문의): webmasterkma@korea.kr</div>

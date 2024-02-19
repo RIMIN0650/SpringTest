@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+
+<mapper namespace="com.rimin.spring.test.jstl.repository.WeatherHistoryRepository">
+	
+	<select id="selectWeatherHistory" 
+			resultType="com.rimin.spring.test.jstl.domain.Weather">
+		SELECT
+			`id`
+			, `date`
+			, `weather`
+			, `temperatures`
+			, `precipitation`
+			, `microDust`
+			, `windSpeed`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`weatherhistory`
+	</select>
+	
+	<insert id="putWeatherList" parameterType="map">
+	<!-- map : 여러 타입 -->
+		INSERT INTO
+			`weatherhistory`
+		(
+			`date`
+			, `weather`
+			, `temperatures`
+			, `precipitation`
+			, `microDust`
+			, `windSpeed`
+		)
+		VALUE
+		(	
+		<!-- repository 에 있는 Param annotation 안의 값으로 채우기 -->
+			#{date}
+			, #{weather}
+			, #{temperatures}
+			, #{precipitation}
+			, #{microDust}
+			, #{windSpeed}
+		)
+	</insert>
+
+
+</mapper>

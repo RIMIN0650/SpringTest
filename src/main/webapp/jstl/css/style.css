@@ -2,28 +2,13 @@
 
 #wrap{
 	width:1200px;
-	height:800px;
 	margin:0 auto;
 }
-
 #logo{
 	height:70px;
 	
 }
-
-
-#section{
-	height:600px;
-}
-
-#menu{
-	height:600px;
-}
-#list{
-	height:600px;
-}
-
 #footer{
-	height:200px;
+	height:100px;
 }
 
