@@ -45,6 +45,38 @@
 			, #{windSpeed}
 		)
 	</insert>
-
+	
+	
+	<insert id="insertWeatherByObject" 
+			parameterType="com.rimin.spring.test.jstl.domain.Weather">
+		INSERT INTO
+			`weatherhistory`
+		(
+			`date`
+			, `weather`
+			, `temperatures`
+			, `precipitation`
+			, `microDust`
+			, `windSpeed`
+		)
+		VALUE
+		(	
+			<!-- paramAnnotation이 아니라 멤버변수의 이름이다. -->
+			#{date}
+			, #{weather}
+			, #{temperatures}
+			, #{precipitation}
+			, #{microDust}
+			, #{windSpeed}
+		)
+		
+	</insert>
+	
+	
+	
+	
+	
+	
+	
 
 </mapper>

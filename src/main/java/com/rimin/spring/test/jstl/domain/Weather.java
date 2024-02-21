@@ -2,9 +2,12 @@ package com.rimin.spring.test.jstl.domain;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Weather {
 	//java.util.date import
 	private int id;
+	@DateTimeFormat(pattern="yyyy년M월d일")
 	private Date date;
 	private String weather;
 	private double temperatures;
