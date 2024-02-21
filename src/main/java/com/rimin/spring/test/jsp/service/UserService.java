@@ -42,12 +42,29 @@ public class UserService {
 	}
 	
 	
-	
 	public List<User> getUserList() {
 		
 		// jsp안에 있는 repository 사용
 		List<User> userList = userRepository.selectUserList();
 		return userList;
 	}
+	
+	
+	
+	
+	//ajax 이메일 중복 여부 알려주고 리턴
+	public boolean isDuplicateEmail(String email) {
+		
+		int count = userRepository.selectCountEmail(email);
+		
+		if(count >= 1) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
+	
 	
 }

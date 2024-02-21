@@ -27,4 +27,12 @@ public interface UserRepository {
 	
 	
 	
+	
+	
+	
+	//전달받은 email 값을 가진 행의 개수 조회
+	// 1 이상이라면 이미 있는 이메일임
+	public int selectCountEmail(@Param("email") String email);
+	
+	
 }

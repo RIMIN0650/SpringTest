@@ -4,6 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 <title>사용자 추가</title>
 </head>
 <body>
@@ -12,13 +18,11 @@
 	
 	<!-- web inf 안에 있는 파일은 접근 못 하도록 막아뒀음 따라서 모든 응답과 요청 처리는 Controller에서 담당 -->
 		
-		<label>이름 : </label><input type="text" id="nameInput"> <br>
-		<label>생년월일 : </label><input type="text" id="birthdayInput"> <br>
-		<label>이메일 : </label><input type="text" id="emailInput"> <br>
+		<label>이름 : <input type="text" id="nameInput"> <br></label>
+		생년월일 : <input type="text" id="birthdayInput"> <br>
+		이메일 : <input type="text" id="emailInput"> <br><button type="button">중복 확인</button>
 		<button type="button" id="addBtn">추가</button>
-		
-		
-			
+
 	<script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -58,8 +62,6 @@
 				});
 				
 			});
-			
-			
 		});
 		
 
