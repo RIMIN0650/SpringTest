@@ -59,6 +59,24 @@
  		
  	</select>
  	
+ 	<select id="selectUserList"
+ 	resultType="com.rimin.spring.test.jsp.domain.User">
+ 		SELECT
+ 			`id`
+ 			, `name`
+ 			, `yyyymmdd`
+ 			, `email`
+ 			, `introduce`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM
+ 			`new_user`
+ 		ORDER BY
+ 			`id` DESC 	
+ 	
+ 	</select>
+ 	
+ 	
  	
  	
  </mapper>
