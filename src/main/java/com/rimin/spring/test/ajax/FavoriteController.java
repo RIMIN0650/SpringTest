@@ -70,4 +70,63 @@ public class FavoriteController {
 	
 	
 	
+	//즐겨찾기 추가하기 url 중복 체크하기
+	@PostMapping("/ajax/favorite/check-duplicate")
+	@ResponseBody
+	public Map<String, Boolean> isDuplicateUrl(@RequestParam("url") String url) {
+		
+		boolean isDuplicateUrl = favoriteService.isDuplicateUrl(url);
+		
+		
+		Map<String, Boolean> resultMap = new HashMap<>();
+		
+		
+		//중복 : true isduplicateUrl : true
+		// 중복 아님 : isDuplicateUrl : false
+		
+//		if(isDuplicateUrl) {
+//			resultMap.put("isDuplicateUrl", true);
+//		} else {
+//			resultMap.put("isDuplicateUrl",  false);
+//		}
+		
+		resultMap.put("isDuplicateUrl",  isDuplicateUrl);
+		
+		return resultMap;
+		
+	}
+	
+	
+	
+	@GetMapping("/ajax/favorite/delete")
+	public Map<String, String> deleteFavorite(@RequestParam("id") int id) {
+		int count = favoriteService.deleteFavorite(id);
+		
+		// 삭제가 성공 > {"result" : "success"}
+		// 실패했으면 > {"result" : "fail"}
+		
+		Map<String, String> resultMap = new HashMap<>();
+		
+		//id 기반 수행 > 성공했을 땐 무조건 1 행 지움
+		//> 1이 아니면 무조건 실패
+		
+		if(count==1) {
+			resultMap.put("result", "success");
+		} else {
+			resultMap.put("result", "fail");
+		}
+		
+		
+		return resultMap;
+			
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

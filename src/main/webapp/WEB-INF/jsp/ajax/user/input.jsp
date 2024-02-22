@@ -18,9 +18,10 @@
 	
 	<!-- web inf 안에 있는 파일은 접근 못 하도록 막아뒀음 따라서 모든 응답과 요청 처리는 Controller에서 담당 -->
 		
-		<label>이름 : <input type="text" id="nameInput"> <br></label>
+		이름 : <input type="text" id="nameInput"> <br>
 		생년월일 : <input type="text" id="birthdayInput"> <br>
-		이메일 : <input type="text" id="emailInput"> <br><button type="button">중복 확인</button>
+		이메일 : <input type="text" id="emailInput"> <br>
+		<button type="button" id="checkDupBtn">중복 확인</button>
 		<button type="button" id="addBtn">추가</button>
 
 	<script
@@ -30,6 +31,30 @@
 	<script>
 		$(document).ready(function(){
 			
+			$("#checkDupBtn").on("click",function(){
+				let email = $("#emailInput").val();
+				if(email == ""){
+					alert("이메일을 입력하세요!");
+					return ;
+				}
+				$.ajax({
+					type:"get"
+					, url:"ajax/user/duplicate-email"
+					, data : {"email":email}
+					, success:function(data){
+						
+						if(data.isDuplicate){
+							// 중복됨
+							alert(" 이메일이 중복되었습니다");
+						}else
+							//중복 안됨
+							alert("사용 가능한 이메일 입니다")
+					}
+					, error:function(){
+						alert("중복 확인 에러");
+					}
+				});
+			});
 			// 추가 버튼이 클릭되면 
 			$("#addBtn").on("click", function(){
 				alert();
@@ -38,7 +63,6 @@
 				let name = $("#nameInput").val();
 				let birthday = $("#birthdayInput").val;
 				let email = $("#emailInput").val;
-				
 				// create API 호출한다
 				$.ajax({
 					type:"get"
@@ -49,6 +73,7 @@
 						// 실패 : {"result" : "fail"}
 						if(data.result == "success"){
 							// 성공
+							alert("성공!");
 							// 리스트 페이지로 이동
 							location.href = "ajax/user/list";
 						} else{
@@ -60,11 +85,8 @@
 						alert("추가 에러");
 					}
 				});
-				
 			});
 		});
-		
-
 	</script>
 
 

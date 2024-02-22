@@ -79,7 +79,7 @@
  	
  	
  	
- 	
+ 	<!-- 이메일 중복 여부 판단 -->
  	<select id="selectCountEmail" parameterType="string" resultType="int">
  		SELECT
  			count(*)

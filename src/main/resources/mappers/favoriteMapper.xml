@@ -40,6 +40,32 @@
 	
 	</insert>
 	
+    <!-- 이메일 중복 여부 판단 -->
+	<select id="checkDupUrl" parameterType="string" resultType="int">
+		SELECT
+			count(*)
+		FROM
+			`favorite`
+		WHERE
+			`url` = #{url}
+	</select>
+	<!-- #{url} : parameter로 전달받은 url 값 -->
+	
+	
+	
+	
+	<delete id="deleteStar" parameterType="int">
+		DELETE FROM
+			`favorite`
+		WHERE
+			`id` = #{id}
+	
+	
+	</delete>
+	
+	
+	
+	
 	
  </mapper>
 

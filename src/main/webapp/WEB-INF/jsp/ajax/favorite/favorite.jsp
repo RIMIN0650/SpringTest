@@ -30,13 +30,46 @@
 				<td>${status.count }</td>
 				<td>${favorite.name }</td>
 				<td>${favorite.url }</td>
+				<td><button type="button" class="btn btn-danger delete-btn">삭제</button>
+				<%-- 클래스로 이름 부여해서 이벤트를 아이디 기반이 아니라 클래스 기반으로 --%>
 			</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	
+
 	
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){
+			
+			//id 를 얻어와야 삭제 대상을 특정화 할 수 있음
+			//$(this)
+			
+			
+			$(".delete-btn").on("click",function(){
+				
+				
+				
+				
+				$.ajax({
+					type:"get"
+					, url:"/ajax/favorite/delete"
+					, data:{"id":}
+					
+					
+					
+				});
+				
+				
+			});
+			
+			
+			
+		});
 	
+
+	</script>
 	
 	
 	

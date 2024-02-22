@@ -20,7 +20,11 @@
 		<label>제목</label><br>
 		<input type="text" size=100 id="titleInput"><br>
 		<label>주소</label><br>
-		<input type="text" size=100 id="urlInput"><br><br>
+		<input type="text" size=100 id="urlInput">
+		<div class="text-danger small d-none" id="duplicateText">중복된 url 입니다</div>
+		<div class="text-info small d-none" id="availableText">저장 가능한 url 입니다</div>
+		<button type="button" class="btn btn-info" id="checkDup">중복 확인</button><br><br>
+		
 		<button type="button" id="addButton" class="btn btn-success">추가</button>
 	</div>
 	
@@ -38,6 +42,41 @@
 	<script>
 		$(document).ready(function(){
 			
+
+			$("#checkDup").on("click",function(){
+
+ 				let url3 = $("#urlInput").val();
+				if(url3 == ""){
+					alert("빈칸입니다");
+					return ;
+				}
+				$.ajax({
+					type:"post"
+					, url:"/ajax/favorite/check-duplicate"
+					, data:{"url" : url3}
+					, success:function(data){
+
+						if(data.isDuplicateUrl){
+							$("#duplicateText").removeClass("d-none");
+							$("#availableText").addClass("d-none");
+							
+						} else{
+							$("#availableText").removeClass("d-none");
+							$("#duplicateText").addClass("d-none");
+							
+						}	
+					},error:function(){
+						alert("에러 발생");
+					}					
+				});
+			});
+			
+			
+			
+			
+			
+			
+			
 			$("#addButton").on("click",function(){
 				let title = $("#titleInput").val();
 				let url = $("#urlInput").val();
@@ -51,8 +90,6 @@
 				alert("url을 입력하세요 ");
 			}
 				
-			
-			
 			// 주소가 http:// 로 시작하지 않거나 
 			// https:// 로 시작하지 않으면
 			
@@ -79,16 +116,8 @@
 				, error:function(){
 					alert("추가 에러");
 				}
+				});
 			});
-			
-			
-			
-			
-			
-			
-			
-			});
-			
 		});
 	
 	

@@ -21,13 +21,9 @@ public interface UserRepository {
 	
 	// 가장 최근에 삽입된 행 조회
 	public User selectLastUser();
-	
+
 	
 	public List<User> selectUserList();
-	
-	
-	
-	
 	
 	
 	//전달받은 email 값을 가진 행의 개수 조회

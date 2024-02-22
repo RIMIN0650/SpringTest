@@ -42,6 +42,9 @@ public class UserService {
 	}
 	
 	
+	
+	
+	
 	public List<User> getUserList() {
 		
 		// jsp안에 있는 repository 사용

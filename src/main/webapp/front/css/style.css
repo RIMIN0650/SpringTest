@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+#wrap{
+	width:1200px;
+	margin:0 auto;
+}
+header{
+	height:200px;
+}
+.main-menu{
+	height:50px;
+	background-color:chocolate;
+}
+.info{
+	height:100px;
+}
+section{
+	height:450px;
+}
+footer{
+	height:100px;
+}

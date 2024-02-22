@@ -30,4 +30,30 @@ public class FavoriteService {
 	}
 	
 	
+	// 즐겨찾기 url 중복 여부 판단
+	// true false 를 return 하므로 return type : boolean
+	public boolean isDuplicateUrl(String url) {
+		int count = favoriteRepository.checkDupUrl(url);
+		
+//		if(count>0) {
+//			return false;
+//		} else {
+//			return true;
+//		}
+		
+		return count > 0;
+		// 연산 결과가 참이면 true 거짓이면 false return
+	}
+	
+	
+	
+	
+	// id로 즐겨찾기 지우기
+	public int deleteFavorite(int id) {
+		int count = favoriteRepository.deleteStar(id);
+		return count;
+	}
+	
+	
+	
 }
