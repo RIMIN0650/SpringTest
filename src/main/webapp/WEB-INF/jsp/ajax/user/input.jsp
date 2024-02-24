@@ -18,11 +18,11 @@
 	
 	<!-- web inf 안에 있는 파일은 접근 못 하도록 막아뒀음 따라서 모든 응답과 요청 처리는 Controller에서 담당 -->
 		
-		이름 : <input type="text" id="nameInput"> <br>
-		생년월일 : <input type="text" id="birthdayInput"> <br>
-		이메일 : <input type="text" id="emailInput"> <br>
-		<button type="button" id="checkDupBtn">중복 확인</button>
-		<button type="button" id="addBtn">추가</button>
+		<label>이름 : </label><input type="text" id="nameInput"> <br>
+		<label>생년월일 : </label><input type="text" id="birthdayInput"> <br>
+		<label>이메일 : </label><input type="text" id="emailInput"> <br>
+		<button type="button" id="checkDupBtn" class="btn btn-info">중복 확인</button>
+		<button type="button" id="addBtn" class="btn btn-success">추가</button>
 
 	<script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -57,7 +57,6 @@
 			});
 			// 추가 버튼이 클릭되면 
 			$("#addBtn").on("click", function(){
-				alert();
 				//입력 값을 얻어와서
 				// input태그를 객체화 해서 value 속성 가져옴
 				let name = $("#nameInput").val();

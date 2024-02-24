@@ -6,6 +6,7 @@
  
  
  <mapper namespace="com.rimin.spring.test.front.repository.BookingRepository">
+ <!-- namespace : 연동할 repository 위치 지정해줌 -->
  	
  	<select id="selectBookList" resultType="com.rimin.spring.test.front.domain.Booking">
  		SELECT 
@@ -20,6 +21,8 @@
  			, `updatedAt`
  		FROM
  			`booking`
+ 		ORDER BY
+ 			`id` DESC
  			
  		
  	
@@ -28,7 +31,36 @@
  	
  	
  	</select>
- 
+ 	
+ 	<insert id="insertBooking" 
+ 			parameterType="map">
+ 	<!-- repository로 전달된 parameter값을 #{}안에 채워넣어줌 -->
+ 		INSERT INTO
+ 			`booking`
+ 		(
+ 			`name`
+ 			, `headcount`
+ 			, `day`
+ 			, `date`
+ 			, `phoneNumber`
+ 			, `state`
+ 		)
+		VALUE
+		(
+			#{name}
+			, #{headcount}
+			, #{day}
+			, #{date}
+			, #{phoneNumber}
+			, '대기중'
+		) 	
+ 	
+ 	</insert>
+ 	
+ 	
+ 	
+ 	
+ 	
  
  
  </mapper>

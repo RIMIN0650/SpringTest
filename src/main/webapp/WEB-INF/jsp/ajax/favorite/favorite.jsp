@@ -50,8 +50,6 @@
 			$(".delete-btn").on("click",function(){
 				
 				
-				
-				
 				$.ajax({
 					type:"get"
 					, url:"/ajax/favorite/delete"

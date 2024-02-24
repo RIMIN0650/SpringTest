@@ -28,45 +28,20 @@
 		</nav>
 		<section>
 			<div class="info d-flex justify-content-center">
-				<h3 class="mt-3">예약 목록 보기</h3>
+				<h3 class="mt-3">예약하기</h3>
 			</div>
-			<div>
-				<table class="table text-center">
-					<thead>
-						<tr>
-							<th>이름</th>
-							<th>예약날짜</th>
-							<th>숙박일수</th>
-							<th>숙박인원</th>
-							<th>전화번호</th>
-							<th>예약상태</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="book" items="${bookingList }">
-							<tr>
-								<td>${book.name }</td>
-								<td><fmt:formatDate value="${book.date }" pattern="yyyy년 M월 d일"/> </td>
-								<td>${book.day }일</td>
-								<td>${book.headcount }명</td>
-								<td>${book.phoneNumber }</td>
-								<c:choose>
-									<c:when test="${book.state eq '대기중'}">
-										<td class="text-info">${book.state }</td>							
-									</c:when>
-									<c:when test="${book.state eq '확정'}">
-										<td class="text-success">${book.state }</td>							
-									</c:when>
-									<c:otherwise>
-										<td class="text-danger">${book.state }</td>
-									</c:otherwise>
-								</c:choose>
-								<td><button type="button" class="btn btn-danger">삭제</button></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+			<div class="text-center">
+				<label>이름</label>
+				<input type="text" id="name"><br>
+				<label>예약날짜</label>
+				<input type="text" id="date"><br>
+				<label>숙박일수</label>
+				<input type="text" id="day"><br>
+				<label>숙박인원</label>
+				<input type="text" id="headcount"><br>
+				<label>전화번호</label>
+				<input type="text" id="phoneNumber"><br><br>
+				<button type="button" class="btn btn-warning" id="bookingBtn">예약하기</button>
 			</div>
 		</section>	
 		<footer class="text-secondary mt-1 ml-1">
@@ -76,13 +51,55 @@
 		</footer>
 	</div>
 	
-	
-	
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   
 	
+	
+	<script>
+		$(document).ready(function(){
+			
+			$("#bookingBtn").on("click",function(){
+				
+				let name = $("#name").val();
+				let date = $("#date").val();
+				let day = $("#day").val();
+				let headcount = $("#headcount").val();
+				let phoneNumber = $("#phoneNumber").val();
+				
+				if(name == ""){
+					alert("이름을 입력하세요.");
+					return;
+				}
+				else if(date == ""){
+					alert("예약날짜를 입력하세요");
+					return;
+				}
+				else if(day == ""){
+					alert("숙박일수를 입력하세요");
+					return;
+				}
+				else if(headcount == ""){
+					alert("숙박인원을 입력하세요");
+					return;
+				}
+				else if(phoneNumber == ""){
+					alert("전화번호를 입력하세요");
+					return;
+				}
+				
+				
+				alert("예약하기 버튼 정상 작동 ");
+			});
+			
+			
+			
+			
+		});
+	
+	
+	</script>
 	
 </body>
 </html>

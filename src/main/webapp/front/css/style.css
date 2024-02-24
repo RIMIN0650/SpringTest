@@ -5,7 +5,7 @@
 	margin:0 auto;
 }
 header{
-	height:200px;
+	height:100px;
 }
 .main-menu{
 	height:50px;
@@ -13,9 +13,6 @@ header{
 }
 .info{
 	height:100px;
-}
-section{
-	height:450px;
 }
 footer{
 	height:100px;

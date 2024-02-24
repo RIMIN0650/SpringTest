@@ -72,11 +72,6 @@
 			});
 			
 			
-			
-			
-			
-			
-			
 			$("#addButton").on("click",function(){
 				let title = $("#titleInput").val();
 				let url = $("#urlInput").val();

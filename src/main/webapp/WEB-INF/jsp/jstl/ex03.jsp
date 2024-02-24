@@ -31,7 +31,6 @@
 	<h4><fmt:formatNumber value="${number }" type="currency" currencySymbol="$"/> </h4>
 	
 	
-	
 	<h3>4. 소수점 자리수 표현</h3>
 	<c:set var="pi" value="3.141592" />
 	<h4><fmt:formatNumber value="${pi }" pattern="#.##" /> </h4>
@@ -39,11 +38,9 @@
 	<h4><fmt:formatNumber value="${pi }" pattern="0.00000000000" /> </h4>
 	
 	
-	
 	<h3>5. 변환 결과 변수 저장</h3>
 	<fmt:formatNumber value="${pi }" pattern="#.##" var="pi2" />
 	<h4>${pi2*2 }</h4>
-	
 	
 	
 	<h3>6. 날짜 포맷</h3>
@@ -54,13 +51,6 @@
 	<fmt:parseDate value="${dateTimeString }" pattern="yyyy-MM-dd HH:mm:ss" var="date"/>
 	<h4>${date }</h4>
 	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 </body>
 </html>

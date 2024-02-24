@@ -54,7 +54,7 @@ public class WeatherController {
 	//weatherService.insertWeatherHistory(date, weather, temperatures, precipitation, microDust, windSpeed);
 	
 	weatherService.addWeatherByObject(weather);
-		
+	
 	//서비스에 weather 객체 통해 날씨 정보 저장하는 기능 하는 것 만들기
 		
 	return "redirect:/jstl/weather/list";
