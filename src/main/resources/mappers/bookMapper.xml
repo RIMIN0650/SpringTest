@@ -58,6 +58,13 @@
  	</insert>
  	
  	
+ 	<delete id="deleteBooking" parameterType="int">
+ 		DELETE FROM
+ 			`favorite`
+ 		WHERE
+ 			`id` = #{id}
+ 	</delete>
+ 	
  	
  	
  	

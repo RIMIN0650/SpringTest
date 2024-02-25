@@ -81,6 +81,32 @@ public class BookingController {
 		return "/front/mainPage";
 	}
 	
+	@GetMapping("/logPension/delete")
+	@ResponseBody
+	public Map<String, String> deleteBooking(@RequestParam("id") int id){
+		
+		int count = bookingService.deleteBooking(id);
+		
+		
+		
+		Map<String, String> resultMap = new HashMap<>();
+		
+		if(count == 1) {
+			resultMap.put("result", "success");
+			
+		} else {
+			resultMap.put("result", "fail");
+		}
+		
+		return resultMap;
+		
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 	

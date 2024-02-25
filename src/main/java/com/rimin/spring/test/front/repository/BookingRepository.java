@@ -30,4 +30,12 @@ public interface BookingRepository {
 			, @Param("headcount") int headcount
 			, @Param("phoneNumber") String phoneNumber);
 	
+	
+	public int deleteBooking(@Param("id") int id);
+	
+	
+	
+	
+	
+	
 }

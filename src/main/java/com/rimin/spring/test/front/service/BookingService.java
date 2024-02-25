@@ -45,5 +45,14 @@ public class BookingService {
 	
 	
 	
+	public int deleteBooking(int id) {
+		
+		int count = bookingRepository.deleteBooking(id);
+		
+		return count;
+				
+	}
+	
+	
 	
 }
