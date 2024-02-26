@@ -60,7 +60,7 @@
  	
  	<delete id="deleteBooking" parameterType="int">
  		DELETE FROM
- 			`favorite`
+ 			`booking`
  		WHERE
  			`id` = #{id}
  	</delete>

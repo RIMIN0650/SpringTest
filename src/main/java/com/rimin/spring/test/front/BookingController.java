@@ -87,8 +87,6 @@ public class BookingController {
 		
 		int count = bookingService.deleteBooking(id);
 		
-		
-		
 		Map<String, String> resultMap = new HashMap<>();
 		
 		if(count == 1) {

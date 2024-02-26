@@ -62,7 +62,7 @@
 										<td class="text-danger">${book.state }</td>
 									</c:otherwise>
 								</c:choose>
-								<td><button type="button" data-booking-id="${booking.id }" class="btn btn-danger">삭제</button></td>
+								<td><button type="button" data-booking-id="${book.id }" class="btn btn-danger">삭제</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -85,9 +85,11 @@
 
 	<script>
 	$(document).ready(function(){
+		
 		$(".delete-btn").on("click", function(){
+			alert("정상작동");
 			
-			let bookingId = $(this).data("favorite-id");
+			let bookingId = $(this).data("booking-id");
 			
 			$.ajax({
 					type:"get"
@@ -105,15 +107,7 @@
 					}
 			});
 		});
-		
 	});
-	
-	
-	
-	
 	</script>
-	
-	
-	
 </body>
 </html>
