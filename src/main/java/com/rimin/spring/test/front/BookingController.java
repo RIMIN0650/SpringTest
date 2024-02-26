@@ -81,6 +81,8 @@ public class BookingController {
 		return "/front/mainPage";
 	}
 	
+	
+	//삭제 기능
 	@GetMapping("/logPension/delete")
 	@ResponseBody
 	public Map<String, String> deleteBooking(@RequestParam("id") int id){
