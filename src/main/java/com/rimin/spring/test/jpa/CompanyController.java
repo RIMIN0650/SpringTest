@@ -33,11 +33,24 @@ public class CompanyController {
 	}
 	
 	
+	
 	//규모를 중소기업, 사원수를 34명 으로 수정하세요. (버블팡의 pk id번호로 업데이트 - workbench에서 조회)
-	updateCompany(){
-		
+	@GetMapping("/jpa/company/update")
+	@ResponseBody
+	public Company updateCompany(){
+		Company company = companyService.updateCompany(19, "중소기업", 34);
+		return company;
 	}
 	
+	@GetMapping("/jpa/company/delete")
+	@ResponseBody
+	// 버블팡 id 전달받아서 삭제하기
+	public String deleteCompany() {
+		
+		companyService.deleteCompany(19);
+		
+		return "수행 완료";
+	}
 	
 	
 	
