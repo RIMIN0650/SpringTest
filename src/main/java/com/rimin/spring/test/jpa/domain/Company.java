@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 
 
 @Builder(toBuilder=true)
+// tobuilder=true : 수정할 수 있게 해주는 역할
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
