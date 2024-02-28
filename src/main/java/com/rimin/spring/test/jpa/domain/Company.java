@@ -42,6 +42,6 @@ public class Company {
 	@UpdateTimestamp
 	@Column(name="updatedAt")
 	private Date updatedAt;
-	
+
 	
 }

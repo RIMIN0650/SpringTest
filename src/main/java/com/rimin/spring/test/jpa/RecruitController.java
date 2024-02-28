@@ -48,11 +48,32 @@ public class RecruitController {
 	@GetMapping("/read/3")
 	@ResponseBody
 	public List<Recruit> selectRecruit(){
-		List<Recruit> recruitList = recruitRepository.findByPositionAndType("웹 back-end 개발자", "정규직");
+		// 웹 back-end 개발자이고 정규직인 공고를 조회하고 출력
+		// List<Recruit> recruitList = recruitRepository.findByPositionAndType("웹 back-end 개발자", "정규직");
+		
+		// 4. 복합 조건 조회
+		// "정규직"이거나 연봉이 9000 이상인 공고를 조회하고 출력
+		//	List<Recruit> recruitList = recruitRepository.findByTypeOrSalaryLessThan("정규직", 9000);
+		
+		
+		// 5. 정렬 제한 조건
+		// "계약직" 목록을 연봉 기준으로 내림차순으로 3개 조회
+		// List<Recruit> recruitList = recruitRepository.findTop3ByOrderBySalaryDesc();
+
+		// 6. 범위 조회 
+		// "성남시 분당구" 가 지역인 연봉 "7000"이상 "8500" 이하인 공고를 조회후 출력
+		//List<Recruit> recruitList = recruitRepository.findByRegionAndSalaryBetween("성남시 분당구", 7000, 8500) ;
+		// List<Recruit> recruitList = recruitRepository.findTop3ByOrderBySalaryDesc();
+		
+		
+		
+		List<Recruit> recruitList = recruitRepository.findByTypeAndDeadlineAndSalary("2026-04-10","정규직" , 8100);
+		
 		return recruitList;
+		
 	}
 	
-
+	
 	
 	
 	

@@ -1,8 +1,11 @@
 package com.rimin.spring.test.jpa.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.rimin.spring.test.jpa.domain.Recruit;
 
@@ -25,6 +28,23 @@ public interface RecruitRepository extends JpaRepository<Recruit,Integer> {
 	
 	
 	
+	public List<Recruit> findByTypeOrSalaryLessThan(String type, int salary);
+	
+	
+	public List<Recruit> findTop3ByOrderBySalaryDesc();
+
+	public List<Recruit> findByRegionAndSalaryBetween(String region, int start, int end);
+	
+	
+	
+	//@Query(value="SELECT * FROM `new_student` WHERE `dreamJob` = :dreamJob", nativeQuery=true)
+//	public List<Student> findByDreamJobQuery(@Param("dreamJob") String dreamJob);
+	
+	
+	@Query(value="SELECT * FROM `recruit`" + " WHERE `deadline` >: deadline" + "`type` =:type" + "`salary` >=:salary" + "ORDER BY `salary` DESC", nativeQuery=true)
+	public List<Recruit> findByTypeAndDeadlineAndSalary(@Param("deadline") String deadline
+														, @Param("type") String type
+														, @Param("salary") int salary);
 	
 	
 	

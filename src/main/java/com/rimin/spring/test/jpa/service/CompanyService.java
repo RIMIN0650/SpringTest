@@ -16,7 +16,7 @@ public class CompanyService {
 	
 	public Company addCompany(String name, String business, String scale, int headcount){
 		// insert 된 결과로 그 행의 모든 정보 저장된 행을 return 
-		Company company = Company.Builder()
+		Company company = Company.builder()
 							.name(name) // .멤버변수 이름 (저장할 값)   전달할 값을 파라미터로 입력받음
 							.business(business) // 괄호 안은 파라미터로 전달될 값
 							.scale(scale)
@@ -45,7 +45,7 @@ public class CompanyService {
 			// null 이 아닌 경우만 수정 진행
 			// 해당 객체만 수정
 			// 그 객체값을 저장해달라고 요청
-			company = company.tobuilder().scale(scale).headcount(headcount).build();
+			company = company.toBuilder().scale(scale).headcount(headcount).build();
 			// 해당 객체의 값을 수정하기
 			company = companyRepository.save(company);
 			// 해당 객체를 다시 저장 , entity 객체로 return 
