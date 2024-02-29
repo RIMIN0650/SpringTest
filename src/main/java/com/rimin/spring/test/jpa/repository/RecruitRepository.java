@@ -41,12 +41,12 @@ public interface RecruitRepository extends JpaRepository<Recruit,Integer> {
 //	public List<Student> findByDreamJobQuery(@Param("dreamJob") String dreamJob);
 	
 	
-	@Query(value="SELECT * FROM `recruit`" + " WHERE `deadline` >: deadline" + "`type` =:type" + "`salary` >=:salary" + "ORDER BY `salary` DESC", nativeQuery=true)
-	public List<Recruit> findByTypeAndDeadlineAndSalary(@Param("deadline") String deadline
-														, @Param("type") String type
-														, @Param("salary") int salary);
-	
-	
+//	@Query(value="SELECT * FROM `recruit`" + " WHERE `deadline` >: deadline" + "`type` =:type" + "`salary` >=:salary" + "ORDER BY `salary` DESC", nativeQuery=true)
+//	public List<Recruit> findByTypeAndDeadlineAndSalary(@Param("deadline") String deadline
+//														, @Param("type") String type
+//														, @Param("salary") int salary);
+//	
+//	
 	
 	
 	

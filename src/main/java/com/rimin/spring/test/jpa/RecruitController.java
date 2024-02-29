@@ -45,9 +45,9 @@ public class RecruitController {
 	}
 	
 	
-	@GetMapping("/read/3")
-	@ResponseBody
-	public List<Recruit> selectRecruit(){
+//	@GetMapping("/read/3")
+//	@ResponseBody
+	//public List<Recruit> selectRecruit(){
 		// 웹 back-end 개발자이고 정규직인 공고를 조회하고 출력
 		// List<Recruit> recruitList = recruitRepository.findByPositionAndType("웹 back-end 개발자", "정규직");
 		
@@ -67,11 +67,11 @@ public class RecruitController {
 		
 		
 		
-		List<Recruit> recruitList = recruitRepository.findByTypeAndDeadlineAndSalary("2026-04-10","정규직" , 8100);
+		//List<Recruit> recruitList = recruitRepository.findByTypeAndDeadlineAndSalary("2026-04-10","정규직" , 8100);
+	
+		//return recruitList;
 		
-		return recruitList;
-		
-	}
+//	}
 	
 	
 	
