@@ -27,25 +27,26 @@ public interface RecruitRepository extends JpaRepository<Recruit,Integer> {
 	public List< Recruit> findByPositionAndType(String position, String type);
 	
 	
+	// type 컬럼이 일치하거나 salary 컬럼이 특정 값 이상인 행 조회
+	public List<Recruit> findByTypeOrSalaryGreaterThanEqual(String type, int salary);
 	
-	public List<Recruit> findByTypeOrSalaryLessThan(String type, int salary);
-	
-	
-	public List<Recruit> findTop3ByOrderBySalaryDesc();
+	// type 컬럼 일치하고 연봉기준으로 내림차순 3개 조회
+	public List<Recruit> findTop3ByTypeOrderBySalaryDesc(String type);
 
+	// region 컬럼이 일치하고 salary 컬럼이 특정값 사이의 조건에 해당하는 행 조회
 	public List<Recruit> findByRegionAndSalaryBetween(String region, int start, int end);
 	
 	
 	
-	//@Query(value="SELECT * FROM `new_student` WHERE `dreamJob` = :dreamJob", nativeQuery=true)
-//	public List<Student> findByDreamJobQuery(@Param("dreamJob") String dreamJob);
+	@Query(value="SELECT * FROM `recruit` "
+			+ "WHERE `deadline` > :deadline "
+			+ "`type` = :type "
+			+ "`salary` >= :salary "
+			+ "ORDER BY `salary` DESC", nativeQuery=true)
+	public List<Recruit> findByNativeQuery(@Param("deadline") String deadline
+											, @Param("type") String type
+											, @Param("salary") int salary);
 	
-	
-//	@Query(value="SELECT * FROM `recruit`" + " WHERE `deadline` >: deadline" + "`type` =:type" + "`salary` >=:salary" + "ORDER BY `salary` DESC", nativeQuery=true)
-//	public List<Recruit> findByTypeAndDeadlineAndSalary(@Param("deadline") String deadline
-//														, @Param("type") String type
-//														, @Param("salary") int salary);
-//	
 //	
 	
 	
